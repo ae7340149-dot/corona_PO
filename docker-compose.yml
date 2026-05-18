@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cough-app:
+    build: .
+    container_name: cough_detector
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app  # Полная синхронизация файлов проекта
+    environment:
+      - PYTHONUNBUFFERED=1 # Вывод логов в консоль без задержек
+    restart: unless-stopped
